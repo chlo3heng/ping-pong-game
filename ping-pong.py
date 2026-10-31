@@ -47,12 +47,27 @@ finish = False
 clock = time.Clock()
 FPS = 60
 
+#CREATE SPRITES
+racket1 = Player('racket.png', 30, 200, 4, 50, 150)
+racket2 = Player('racket.png', 520, 200, 4, 50, 150)
+ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
+
 while game:
     for e in event.get():
         if e.type== QUIT:
             game = False
 
-    
+    if finish != True:
+        window.fill(back)
+        racket1.update_l()
+        racket2.update_r()
+
+        racket1.reset()
+        racket2.reset()
+        ball.reset()
+
+
+     
     display.update()
     clock.tick(FPS)
 
